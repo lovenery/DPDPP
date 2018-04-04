@@ -141,7 +141,7 @@
                 android:id="@+id/weightTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="體重" />
+                android:text="體重" />
 
             <EditText
                 android:id="@+id/weightET"
