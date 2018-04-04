@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">a20180323_1</string>
+    <string-array name="blood">
+        <item></item>
+        <item>A</item>
+        <item>B</item>
+        <item>AB</item>
+        <item>O</item>
+    </string-array>
 </resources>
