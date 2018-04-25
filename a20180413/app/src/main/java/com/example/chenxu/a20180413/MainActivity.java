@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         BufferedWriter br = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
                         String s = chatET.getText().toString();
-                        br.write(s);
+                        br.write(s + "\n");
                         br.flush();
                     } catch (Exception e) {
                         Log.d(ACTIVITY_TAG, "This is Debug.：" + e);
@@ -102,16 +102,16 @@ public class MainActivity extends AppCompatActivity {
                 int socketPort = 9999;
                 socket = new Socket(serverIP, socketPort);
 
-                conn = true;
-                myHandler.post(updateTV);
-                updateText = "成功連接！\n";
                 Log.d(ACTIVITY_TAG, "成功連接!");
+                conn = true;
+                updateText = "成功連接！\n";
+                myHandler.post(updateTV);
 
                 BufferedReader br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 while (!socket.isClosed() && conn) {
                     updateText = br.readLine();
                     if (updateText != null && updateText != "") {
-                        updateText = "Server說" + updateText + "\n";
+                        updateText = "Server說：" + updateText + "\n";
                         myHandler.post(updateTV);
                     }
                 }
